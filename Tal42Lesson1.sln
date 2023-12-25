@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tal42Lesson1", "Tal42Lesson1.csproj", "{C71B36E3-4033-42C0-BF8F-E3F4B7703257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\Test\Test.csproj", "{11CF4EDF-E6B4-412E-B39C-23B6A625E342}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C71B36E3-4033-42C0-BF8F-E3F4B7703257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71B36E3-4033-42C0-BF8F-E3F4B7703257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71B36E3-4033-42C0-BF8F-E3F4B7703257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71B36E3-4033-42C0-BF8F-E3F4B7703257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11CF4EDF-E6B4-412E-B39C-23B6A625E342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11CF4EDF-E6B4-412E-B39C-23B6A625E342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11CF4EDF-E6B4-412E-B39C-23B6A625E342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11CF4EDF-E6B4-412E-B39C-23B6A625E342}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43A849A8-BF2E-48E2-B9CB-2ED5D5376186}
+	EndGlobalSection
+EndGlobal
