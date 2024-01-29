@@ -8,6 +8,8 @@ class Program
         Printer printer = new();
         _ = new User(printer);
         _ = new User(printer);
+        _ = new User(printer);
+        _ = new User(printer);
         //printer.PageOver();
         Console.WriteLine("Please enter pages to print:");
         int x = int.Parse(Console.ReadLine()!);
