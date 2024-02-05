@@ -1,4 +1,4 @@
-﻿namespace WpfBinding1;
+﻿namespace WpfBinding;
 
 using System.Windows;
 

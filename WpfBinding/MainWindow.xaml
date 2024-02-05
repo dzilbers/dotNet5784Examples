@@ -4,16 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:me="clr-namespace:WpfBinding"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Window.Resources>
-        <LinearGradientBrush x:Key="myLinGradBrush" MappingMode="RelativeToBoundingBox">
+        <!-- LinearGradientBrush x:Key="myLinGradBrush" MappingMode="RelativeToBoundingBox">
             <GradientStop Color="Blue" Offset="0"/>
             <GradientStop Color="Yellow" Offset="0.5"/>
             <GradientStop Color="Red" Offset="1"/>
-        </LinearGradientBrush>
+        </LinearGradientBrush -->
         <sys:String x:Key="btnContent">Next</sys:String>
         <ControlTemplate x:Key="btnEllipse">
             <Canvas RenderTransformOrigin="0.5,0.5">
@@ -34,9 +34,10 @@
             <Setter Property="BorderThickness" Value="5"/>
             <Setter Property="BorderBrush" Value="Red"/>
         </Style>
-        <Style BasedOn="{StaticResource style1}"  TargetType="Button">
+        <Style BasedOn="{StaticResource style1}" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
         </Style>
+        <me:MyData x:Key="data" User="Dani" Password="123456"/>
     </Window.Resources>
     <Grid>
         <Rectangle Fill="Red" Stroke="Black" Margin="250,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
@@ -46,10 +47,14 @@
             License Agreement<LineBreak/>
             Any commercial use is forbidden
         </TextBlock>
-        <Button Content="{Binding Path=MyName }" HorizontalAlignment="Left" Margin="565,319,0,0" VerticalAlignment="Top"
+        <Button Content="{Binding MyName}" HorizontalAlignment="Left" Margin="565,319,0,0" VerticalAlignment="Top"
                 IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
                 FontSize="20" FontWeight="Bold" Background="{StaticResource myLinGradBrush}"
                 Click="Button_Click"/>
+        <!-- Button Content="{StaticResource btnContent}" HorizontalAlignment="Left" Margin="565,319,0,0" VerticalAlignment="Top"
+                IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
+                FontSize="20" FontWeight="Bold" Background="{StaticResource myLinGradBrush}"
+                Click="Button_Click"/ -->
         <Button x:Name="btnNext2" Content="{Binding ElementName=txtBox, Path=Text, Mode=TwoWay}" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top"
                 IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
                 FontSize="20" FontWeight="Bold" Background="{DynamicResource myLinGradBrush}" Click="btnNext2_Click"/>
@@ -84,10 +89,16 @@
                     Template="{Binding Source={StaticResource btnEllipse}}"/>
             <TextBox Text="{Binding MyObject.User}"
                 Height="32" Canvas.Left="473" TextWrapping="Wrap" Canvas.Top="100" Width="78"/>
+            <Label Canvas.Left="590" Canvas.Top="100" Width="60" Content="{Binding User, Source={StaticResource data}}" />
+            <ComboBox Canvas.Left="660" Canvas.Top="120" Width="100"
+                      ItemsSource="{Binding Source={StaticResource Levels}}" SelectedItem="{Binding Level}" SelectionChanged="ComboBox_SelectionChanged"/>
+            <Label Canvas.Left="660" Canvas.Top="150" Width="120" Content="{Binding ShowLevel}" />
         </Canvas>
-        <Canvas DataContext="{StaticResource items}" HorizontalAlignment="Left" Margin="65,180" Width="120" Height="145">
-            <ItemsControl ItemsSource="{Binding}">
-                <ItemsControl.ItemsPanel>
+        <Canvas DataContext="{StaticResource items}" HorizontalAlignment="Left" Margin="65,180" Width="120" Height="145" >
+        <!-- Canvas HorizontalAlignment="Left" Margin="65,180" Width="120" Height="145" -->
+            <!-- ItemsControl ItemsSource="{Binding MyItems}" -->
+            <ItemsControl ItemsSource="{Binding}" >
+            <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
@@ -104,7 +115,7 @@
                             <Border CornerRadius="20" BorderThickness="2" Width="55" Height="{Binding Value}"
                                     Margin="0,0,5,0" BorderBrush="Violet" Background="BlueViolet">
                                 <TextBlock Text="{Binding Value}" FontWeight="Bold" Foreground="Wheat"
-                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                           VerticalAlignment="Bottom" HorizontalAlignment="Center">
                                     <TextBlock.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform ScaleY="-1"/>
