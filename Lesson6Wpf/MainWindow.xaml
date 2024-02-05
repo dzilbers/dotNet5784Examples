@@ -6,18 +6,29 @@
         xmlns:local="clr-namespace:Lesson6Wpf"
         mc:Ignorable="d"
         Title="Lesson6 Window - the best" Height="180" Width="500" Topmost="True">
-    <Grid>
+    <Window.Resources>
+        <LinearGradientBrush x:Key="myLinearGradientBrush">
+            <GradientStop Color="Blue" Offset="0" />
+            <GradientStop Color="Yellow" Offset="0.5" />
+            <GradientStop Color="Red" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Grid Background="{Binding Source={StaticResource myLinearGradientBrush}}">
         <Button x:Name="btn_OK" Content="בסדר גמור"
                 HorizontalAlignment="Left" Margin="210,122,0,0" VerticalAlignment="Top"
-                MouseMove="btn_OK_MouseMove" Click="btn_OK_Click" LostFocus="btn_OK_LostFocus"/>
-        <CheckBox Content="Do you approve?" 
+                Click="btn_OK_Click" LostFocus="btn_OK_LostFocus"
+                Background="#FF82EFC0" Foreground="#FF123AB5"
+                FontSize="14" FontFamily="David"
+                IsEnabled="{Binding IsChecked, ElementName=chkAgree}"/>
+        <CheckBox x:Name="chkAgree" Content="Do you approve?" 
                   HorizontalAlignment="Left" Margin="70,28,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"
                   />
         <ComboBox HorizontalAlignment="Left" Margin="25,122,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="It's my text here about the window" HorizontalAlignment="Left" Margin="210,28,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="listBox"
         HorizontalAlignment="Left" Margin="1,1,0,0" VerticalAlignment="Top">
-            <!-- ListBox.Items>
+            <!--ListBox.Items>
                 <ListBoxItem>Item 1</ListBoxItem>
                 <ListBoxItem>Item 2</ListBoxItem>
                 <ListBoxItem>Item 3</ListBoxItem>

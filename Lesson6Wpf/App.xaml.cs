@@ -9,10 +9,10 @@ namespace Lesson6Wpf
     /// </summary>
     public partial class App : Application
     {
-        void temp()
-        {
-            this.InitializeComponent();
-        }
+        //void temp()
+        //{
+        //    this.InitializeComponent();
+        //}
     }
 
 }

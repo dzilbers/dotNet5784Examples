@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Input;
@@ -19,7 +18,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         //listBox.Items.Clear();
         //for (int i = 0; i < 10; ++i)
-        //    listBox.Items.Add(new ListBoxItem() { Content = "בום " + i });
+         //   listBox.Items.Add(new ListBoxItem() { Content = "בום " + i });
         listBox.ItemsSource = Enum.GetValues(typeof(ListEnum));
     }
 
@@ -51,5 +50,10 @@ public partial class MainWindow : Window
     {
         Button btn = (sender as Button)!;
         btn.Background = Brushes.Beige;
+    }
+
+    private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+    {
+
     }
 }

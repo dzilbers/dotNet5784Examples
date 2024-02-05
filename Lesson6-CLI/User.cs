@@ -9,7 +9,6 @@ internal class User
     {
         _number = ++s_counter;
         _printer = printer;
-        //        printer.PageOver += myPageOver;
         _printer.PageOver += myPageOver;
     }
 
