@@ -1,7 +1,10 @@
-﻿// using System.Diagnostics;
+﻿#pragma warning disable CA1822 // Mark members as static
+#pragma warning disable IDE0060 // Remove unused parameter
+
+using System.Diagnostics;
 
 // Main:
-Person p = new Person { Id = 123, Name = "Shira" };
+Person p = new() { Id = 123, Name = "Shira" };
 p.F1();
 Console.WriteLine(p);
 
@@ -19,11 +22,12 @@ class Person
     internal int Id;
     internal string? Name;
 
-#pragma warning disable CA1822 // Mark members as static
-    //    [Obsolete("Please stop using this function, use f2(int) instead", false)]
+    //[Obsolete("Please stop using this function, use F2(int) instead",true)]
     internal void F1() { }
     internal void F2(int num) { }
-#pragma warning restore CA1822 // Mark members as static
 
-//    public override string ToString() => $"Person: #{Id}, name: {Name}";
+    //public override string ToString() => $"Person: #{Id}, name: {Name}";
 }
+
+#pragma warning restore IDE0060 // Remove unused parameter
+#pragma warning restore CA1822 // Mark members as static
