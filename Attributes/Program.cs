@@ -7,10 +7,10 @@ Console.WriteLine(p);
 
 /// <summary>
 /// Person class for demonstration of attributes:
-/// <ul>
-/// <li>DebuggerDisplay</li>
-/// <li>Obsolete</li>
-/// </ul>
+/// <list type="bullet">
+/// <item>DebuggerDisplay</item>
+/// <item>Obsolete</item>
+/// </list>
 /// </summary>
 //[DebuggerDisplay("{Name,nq}({Id,h})")]
 class Person
