@@ -13,6 +13,7 @@ Console.WriteLine(p);
 /// </list>
 /// </summary>
 //[DebuggerDisplay("{Name,nq}({Id,h})")]
+//[DebuggerDisplay("{Name}({Id})")]
 class Person
 {
     internal int Id;
