@@ -15,7 +15,7 @@ Console.WriteLine(p);
 /// <item>Obsolete</item>
 /// </list>
 /// </summary>
-//[DebuggerDisplay("{Name,nq}({Id,h})")]
+[DebuggerDisplay("{Name,nq}({Id,h})")]
 //[DebuggerDisplay("{Name}({Id})")]
 class Person
 {
@@ -23,10 +23,12 @@ class Person
     internal string? Name;
 
     //[Obsolete("Please stop using this function, use F2(int) instead",true)]
+    //[Obsolete]
+    //[DebuggerDisplay("{Name}({Id})")]
     internal void F1() { }
     internal void F2(int num) { }
 
-    //public override string ToString() => $"Person: #{Id}, name: {Name}";
+    public override string ToString() => $"Person: #{Id}, name: {Name}";
 }
 
 #pragma warning restore IDE0060 // Remove unused parameter
