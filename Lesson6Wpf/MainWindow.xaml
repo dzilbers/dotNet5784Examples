@@ -15,6 +15,7 @@
     </Window.Resources>
 
     <Grid Background="{Binding Source={StaticResource myLinearGradientBrush}}">
+    <!-- Grid Background="{StaticResource myLinearGradientBrush}" -->
         <Button x:Name="btn_OK" Content="בסדר גמור"
                 HorizontalAlignment="Left" Margin="210,122,0,0" VerticalAlignment="Top"
                 Click="btn_OK_Click" LostFocus="btn_OK_LostFocus"
