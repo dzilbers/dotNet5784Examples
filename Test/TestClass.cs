@@ -1,6 +1,6 @@
 ﻿namespace Test;
 
-public class MyClass
+public class TestClass
 {
     public int id;
     public void print()
