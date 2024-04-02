@@ -4,25 +4,33 @@ class Program
 {
     public static void Main()
     {
-        printInfo(typeof(MyClass));
-        Console.WriteLine("-----------------------------------");
+        //printInfo(typeof(MyClass));
+        //Console.WriteLine("-----------------------------------");
         var anonymousObject = new { Id = 2222, Name = "Yossi" };
         var anonym1 = new { Id = 2222, Name = "Yossi" };
-        printInfo(anonymousObject.GetType());
-        Console.WriteLine(anonymousObject == anonym1);
-        Console.WriteLine(anonymousObject.Equals(anonym1));
-        Console.WriteLine(anonymousObject);
+        //printInfo(anonymousObject.GetType());
+        //Console.WriteLine(anonymousObject == anonym1);
+        //Console.WriteLine(anonymousObject.Equals(anonym1));
+        //Console.WriteLine(anonymousObject);
         var anonym2 = anonymousObject with { Name = "Dani" };
-        Console.WriteLine("-----------------------------------");
-        //object[] array = new object[5];
-        //array[1] = anonym2;
+        //Console.WriteLine("-----------------------------------");
+        var anonymousOther = new { Id = "123", Name = 3.5 };
+        //printInfo(anonymousOther.GetType());
+        var anonymousOther1 = new { Name = 3.5, Id = "123" };
+        //printInfo(anonymousOther1.GetType());
+        //Console.WriteLine(anonymousOther.Equals(anonymousOther1));
+        object[] array = new object[5];
+        array[1] = anonym2;
 
         //string str = "123";
         //int i = str.ToInt();
         //int j = "234".ToInt();
 
+        //Console.WriteLine("DateTime.Now:");
         //DateTime.Now.ToStringProperty();
+        //Console.WriteLine("Anonymous object:");
         //anonym1.ToStringProperty();
+        //Console.WriteLine("MyClass object:");
         //new MyClass().ToStringProperty();
 
         //var myObject = new MyGenericClass<int, string>();
@@ -35,25 +43,35 @@ class Program
         //foreach (var number in func())
         //    Console.WriteLine(number);
 
-        //SomeDelegate myDlgt = new SomeDelegate(sum);
-        //myDlgt += mult; myDlgt += sub; myDlgt -= sum;
+        SomeDelegate myDlgt = new SomeDelegate(sum);
+        myDlgt += mult;
+        myDlgt += sub;
+        myDlgt -= sum;
+        Console.WriteLine(myDlgt!(3, 2));
 
-        //foreach (var d in myDlgt.GetInvocationList()) Console.WriteLine(d.Method);
+        Console.WriteLine("");
+        foreach (var d in myDlgt.GetInvocationList())
+            Console.WriteLine(d.Method);
 
-        //if (myDlgt is Delegate) Console.WriteLine("myDlgt is Delegate == true");
-        //foreach (var item in myDlgt.GetInvocationList()) // (Delegate item …)
-        //    Console.WriteLine(item.DynamicInvoke(3, 2));
+        if (myDlgt is Delegate) Console.WriteLine("myDlgt is Delegate == true");
+        foreach (var item in myDlgt.GetInvocationList()) // (Delegate item …)
+            Console.WriteLine(item.DynamicInvoke(3, 2));
 
-        //    static int sum(int num1, int num2) => num1 + num2;
-        //    static int mult(int num1, int num2) => num1 * num2;
-        //    static int sub(int num1, int num2) => num1 - num2;
+        printInfo(typeof(SomeDelegate));
 
-        //static IEnumerable<int> func()
-        //{
-        //    yield return 25;
-        //    yield return 36;
-        //}
+        static int sum(int num1, int num2) => num1 + num2;
+        static int mult(int num1, int num2) => num1 * num2;
+        static int sub(int num1, int num2) => num1 - num2;
+
+        List<int?> list = new();
+        var result = list.FirstOrDefault();
     }
+
+    //static IEnumerable<int> func()
+    //{
+    //    yield return 25;
+    //    yield return 36;
+    //}
 
     static string accessLevel(FieldInfo item) => (item.IsInitOnly ? ", readonly" : "") + ", access: " +
         item switch
@@ -195,9 +213,9 @@ class MyClass
     public string? Name;
 }
 
-class MyGenericClass<T, U>
+class MyGenericClass<T, U> // where T : struct // where T : class
 {
-    T? _myField;
+    T? _myField; // = null;
     internal void MyFunction(T parm1, U parm2)
     {
         _myField = parm1;
