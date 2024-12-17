@@ -12,14 +12,20 @@ internal class User
         _printer.PageOver += myPageOver;
     }
 
+    private void _printer_PageOver()
+    {
+        throw new NotImplementedException();
+    }
+
     static readonly Random _random = new();
 
     private void myPageOver(object? printer, PrinterEventArgs printerArgs)
     {
         //PrinterEventArgs printerArgs = args as PrinterEventArgs ?? throw new ArgumentException("Bad event arguments");
         if (printerArgs.Done) return;
+
         Console.WriteLine($"User{_number}: You LAZY - bring more paper!!!");
-        Console.WriteLine($"Not printer:{(printerArgs).NotPrinted}");
+        Console.WriteLine($"Not printed: {(printerArgs).NotPrinted}");
         if (_random.NextDouble() < 0.5)
         {
             Console.WriteLine("I will bring it!");

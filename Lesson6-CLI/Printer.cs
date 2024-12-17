@@ -13,11 +13,13 @@ internal class PrinterEventArgs : EventArgs
 internal class Printer
 {
     //public event PrintEventHandler? PageOver = null;
+    //public event EventHandler? PageOver = null;
     public event EventHandler<PrinterEventArgs>? PageOver = null;
     private int _pageCount = 20;
     private void handlePageOver(int count)
-    { if (PageOver != null) PageOver(this, new PrinterEventArgs(count)); }
-                                //  => PageOver?.DynamicInvoke();
+    //{ if (PageOver != null) PageOver(); }
+                                 => PageOver?.DynamicInvoke(this, new PrinterEventArgs(count));
+
     public void Print(int pages)
     {
         if (pages <= _pageCount) _pageCount -= pages;

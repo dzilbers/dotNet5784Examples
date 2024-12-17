@@ -2,36 +2,43 @@
 
 class Program
 {
+    static bool Odd(int number) => number % 2 == 1;
+
     public static void Main()
     {
+        int[] numbers = { 3, 7, 3, 8, 0, 3, 87, 34, 78 };
+        foreach(var num in numbers.ToList().FindAll(Odd))
+            Console.WriteLine(num);
+
         //printInfo(typeof(MyClass));
         //Console.WriteLine("-----------------------------------");
-        var anonymousObject = new { Id = 2222, Name = "Yossi" };
+        //var anonymousObject = new { Id = 2222, Name = "Yossi" };
         var anonym1 = new { Id = 2222, Name = "Yossi" };
         //printInfo(anonymousObject.GetType());
         //Console.WriteLine(anonymousObject == anonym1);
         //Console.WriteLine(anonymousObject.Equals(anonym1));
         //Console.WriteLine(anonymousObject);
-        var anonym2 = anonymousObject with { Name = "Dani" };
+        //var anonym2 = anonymousObject with { Name = "Dani" };
         //Console.WriteLine("-----------------------------------");
-        var anonymousOther = new { Id = "123", Name = 3.5 };
+        //var anonymousOther = new { Id = "123", Name = 3.5 };
         //printInfo(anonymousOther.GetType());
-        var anonymousOther1 = new { Name = 3.5, Id = "123" };
+        //var anonymousOther1 = new { Name = 3.5, Id = "123" };
         //printInfo(anonymousOther1.GetType());
         //Console.WriteLine(anonymousOther.Equals(anonymousOther1));
-        object[] array = new object[5];
-        array[1] = anonym2;
+        //object[] array = new object[5];
+        //array[1] = anonym2;
 
         //string str = "123";
         //int i = str.ToInt();
         //int j = "234".ToInt();
 
-        //Console.WriteLine("DateTime.Now:");
-        //DateTime.Now.ToStringProperty();
-        //Console.WriteLine("Anonymous object:");
-        //anonym1.ToStringProperty();
-        //Console.WriteLine("MyClass object:");
-        //new MyClass().ToStringProperty();
+
+        Console.WriteLine("DateTime.Now:");
+        DateTime.Now.ToStringProperty();
+        Console.WriteLine("Anonymous object:");
+        anonym1.ToStringProperty();
+        Console.WriteLine("MyClass object:");
+        new MyClass().ToStringProperty();
 
         //var myObject = new MyGenericClass<int, string>();
         //myObject!.MyFunction(3, "I am here");
@@ -43,28 +50,32 @@ class Program
         //foreach (var number in func())
         //    Console.WriteLine(number);
 
-        SomeDelegate myDlgt = new SomeDelegate(sum);
-        myDlgt += mult;
-        myDlgt += sub;
-        myDlgt -= sum;
-        Console.WriteLine(myDlgt!(3, 2));
+        //SomeDelegate myDlgt = new SomeDelegate(sum);
+        //myDlgt += mult;
+        //myDlgt += sub;
+        //myDlgt -= sum;
+        //Console.WriteLine(myDlgt!(3, 2));
 
-        Console.WriteLine("");
-        foreach (var d in myDlgt.GetInvocationList())
-            Console.WriteLine(d.Method);
+        //Console.WriteLine("");
+        //foreach (var d in myDlgt.GetInvocationList())
+        //    Console.WriteLine(d.Method);
 
-        if (myDlgt is Delegate) Console.WriteLine("myDlgt is Delegate == true");
-        foreach (var item in myDlgt.GetInvocationList()) // (Delegate item …)
-            Console.WriteLine(item.DynamicInvoke(3, 2));
+        //if (myDlgt is Delegate) Console.WriteLine("myDlgt is Delegate == true");
+        //foreach (var item in myDlgt.GetInvocationList()) // (Delegate item …)
+        //    Console.WriteLine(item.DynamicInvoke(3, 2));
 
-        printInfo(typeof(SomeDelegate));
+        //printInfo(typeof(SomeDelegate));
 
-        static int sum(int num1, int num2) => num1 + num2;
-        static int mult(int num1, int num2) => num1 * num2;
-        static int sub(int num1, int num2) => num1 - num2;
+        //static int sum(int num1, int num2) => num1 + num2;
+        //static int mult(int num1, int num2) => num1 * num2;
+        //static int sub(int num1, int num2) => num1 - num2;
 
-        List<int?> list = new();
-        var result = list.FirstOrDefault();
+        //List<int?> list = new();
+        //var result = list.FirstOrDefault();
+
+        //MyRecord record1 = new(2, "Dani");
+        //MyRecord record2 = new(3, "Moti", Category.Admin);
+
     }
 
     //static IEnumerable<int> func()
@@ -235,5 +246,7 @@ static class MyTools
         Console.WriteLine(str);
     }
 }
+enum Category { User, Admin }
+record MyRecord (int ID, string Name, Category category = Category.User);
 
 

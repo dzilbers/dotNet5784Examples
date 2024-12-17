@@ -1,0 +1,28 @@
+﻿<Window x:Class="Wpf5785.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:me="clr-namespace:Wpf5785"
+        mc:Ignorable="d"
+        Title="My Main Window" Height="400" Width="1000"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Window.Resources>
+        <me:MyData x:Key="myData" User="Eli" Password="123456"/>
+    </Window.Resources>
+    <Grid><!--Background="Red"-->
+        <Button x:Name="btnOK" Content="{Binding btnText}" HorizontalAlignment="Left" FontSize="96"
+                Margin="100,100,0,0" VerticalAlignment="Top" Click="btnOK_Click" MouseDoubleClick="btnOK_Double"
+                IsEnabled="{Binding IsChecked, ElementName=chkMine}"/>
+        <!--Button>MouseMove="btn_OK_MouseMove"/-->
+        <Label Content="{Binding User, Source={StaticResource myData}}" HorizontalAlignment="Left" Margin="103,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding Password, Source={StaticResource myData}}" HorizontalAlignment="Left" Margin="203,16,0,0" VerticalAlignment="Top"/>
+
+        <Label Content="{Binding MyObject.User}" HorizontalAlignment="Left" Margin="103,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding MyObject.Password}" HorizontalAlignment="Left" Margin="203,36,0,0" VerticalAlignment="Top"/>
+
+        <CheckBox x:Name="chkMine" Content="CheckBox" HorizontalAlignment="Left" Margin="110,58,0,0"
+                  VerticalAlignment="Top" IsChecked="True" Checked="CheckBox_Checked"/>
+
+    </Grid>
+</Window>

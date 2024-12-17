@@ -76,9 +76,9 @@
                         <Canvas Name="Parent4">
                             <TextBlock FontSize="16" Margin="5" Text="Display the name of the ancestor"/>
                             <TextBlock FontSize="16" Margin="50" Width="200"
-                                       Text="{Binding RelativeSource={RelativeSource  FindAncestor,
-                                                                                      AncestorType={x:Type Border},
-                                                                                      AncestorLevel=2}, Path=Name}"/>
+                                       Text="{Binding Name, RelativeSource={RelativeSource  FindAncestor,
+                                                                            AncestorType={x:Type Border},
+                                                                            AncestorLevel=1}}"/>
                         </Canvas>
                     </Border>
                 </Canvas>

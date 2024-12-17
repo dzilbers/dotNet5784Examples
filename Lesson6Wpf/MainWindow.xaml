@@ -21,7 +21,7 @@
                 Click="btn_OK_Click" LostFocus="btn_OK_LostFocus"
                 Background="#FF82EFC0" Foreground="#FF123AB5"
                 FontSize="14" FontFamily="David"
-                IsEnabled="{Binding IsChecked, ElementName=chkAgree}"/>
+                IsEnabled="{Binding IsChecked, ElementName=chkAgree}" MouseMove="btn_OK_MouseMove"/>
         <CheckBox x:Name="chkAgree" Content="Do you approve?" 
                   HorizontalAlignment="Left" Margin="70,28,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"
                   />
