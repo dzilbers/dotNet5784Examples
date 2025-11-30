@@ -4,7 +4,7 @@
 
 using System.Diagnostics;
 using System.Reflection;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 namespace Attributes;
 
 [Developer("Dani", 58, Reviewed = true)]
@@ -109,16 +109,17 @@ internal class Program
 /// <item>Obsolete</item>
 /// </list>
 /// </summary>
-[DebuggerDisplay("{Name,nq}({Id,h})")]
+[DebuggerDisplay("{Name,nq}({Id,h})", Type = "Person")]
 //[DebuggerDisplay("{Name}({Id})")]
 class Person
 {
+    [DebuggerDisplay("{Id,d}", Name = "Identification Number")]
     internal int Id;
+    //[Developer("Moti", 18)]
     internal string? Name;
 
-    //[Obsolete("Please stop using this function, use F2(int) instead",true)]
+    //[Obsolete("Please stop using this function, use F2(int) instead", true)]
     //[Obsolete]
-    //[DebuggerDisplay("{Name}({Id})")]
     internal void F1() { }
     internal void F2(int num) { }
 

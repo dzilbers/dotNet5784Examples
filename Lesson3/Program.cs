@@ -2,12 +2,12 @@
 
 class Program
 {
-    static bool Odd(int number) => number % 2 == 1;
+    static bool odd(int number) => number % 2 == 1;
 
     public static void Main()
     {
-        int[] numbers = { 3, 7, 3, 8, 0, 3, 87, 34, 78 };
-        foreach(var num in numbers.ToList().FindAll(Odd))
+        int[] numbers = [3, 7, 3, 8, 0, 3, 87, 34, 78];
+        foreach(var num in numbers.ToList().FindAll(odd))
             Console.WriteLine(num);
 
         //printInfo(typeof(MyClass));
@@ -247,6 +247,6 @@ static class MyTools
     }
 }
 enum Category { User, Admin }
-record MyRecord (int ID, string Name, Category category = Category.User);
+record MyRecord (int ID, string Name, Category Category = Category.User);
 
 
