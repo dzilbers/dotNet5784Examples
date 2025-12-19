@@ -21,7 +21,7 @@ public class MyData : INotifyPropertyChanged
             string old = user;
             user = value;
             if (!old.Equals(value))
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("User"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(User)));
         }
     }
     public string Password { get; set; }

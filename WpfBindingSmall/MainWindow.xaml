@@ -18,9 +18,10 @@
         <Label Content="{Binding User, Source={StaticResource myData}}" HorizontalAlignment="Left" Margin="103,16,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Password, Source={StaticResource myData}}" HorizontalAlignment="Left" Margin="203,16,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="{Binding MyObject.User}" HorizontalAlignment="Left" Margin="103,36,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding MyObject.Password}" HorizontalAlignment="Left" Margin="203,36,0,0" VerticalAlignment="Top"/>
-
+        <StackPanel DataContext="{Binding MyObject}" Orientation="Horizontal" HorizontalAlignment="Left" Margin="103,36,0,0">
+            <Label Content="{Binding User}"/>
+            <Label Content="{Binding Password}" Margin="100,0,0,0"/>
+        </StackPanel>
         <CheckBox x:Name="chkMine" Content="CheckBox" HorizontalAlignment="Left" Margin="110,58,0,0"
                   VerticalAlignment="Top" IsChecked="True" Checked="CheckBox_Checked"/>
 

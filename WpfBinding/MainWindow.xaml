@@ -37,6 +37,9 @@
         <Style BasedOn="{StaticResource style1}" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
         </Style>
+        <Style x:Key="style2" BasedOn="{StaticResource style1}" TargetType="Button">
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>
         <me:MyData x:Key="data" User="Dani" Password="123456"/>
     </Window.Resources>
     <Grid>
@@ -57,6 +60,7 @@
                 Click="Button_Click"/ -->
         <Button x:Name="btnNext2" Content="{Binding ElementName=txtBox, Path=Text, Mode=TwoWay}" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top"
                 IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
+                Style="{StaticResource style2}"
                 FontSize="20" FontWeight="Bold" Background="{DynamicResource myLinGradBrush}" Click="btnNext2_Click"/>
         <CheckBox Name="ChkApproved" Content="I approve the license agreement"
                   HorizontalAlignment="Left" Margin="61,331,0,0" VerticalAlignment="Top"
@@ -77,8 +81,8 @@
                             <TextBlock FontSize="16" Margin="5" Text="Display the name of the ancestor"/>
                             <TextBlock FontSize="16" Margin="50" Width="200"
                                        Text="{Binding Name, RelativeSource={RelativeSource  FindAncestor,
-                                                                            AncestorType={x:Type Border},
-                                                                            AncestorLevel=1}}"/>
+                                                                            AncestorType={x:Type Canvas},
+                                                                            AncestorLevel=3}}"/>
                         </Canvas>
                     </Border>
                 </Canvas>

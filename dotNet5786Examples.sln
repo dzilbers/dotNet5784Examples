@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBindingSmall", "WpfBindi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\..\dotNet5785_Lessons\Test\Test.csproj", "{2CB12D27-8CB1-2E08-8726-667F110A16B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson8Task", "Lesson8Task\Lesson8Task.csproj", "{44E9E00B-A20C-44A8-8190-7179D111B809}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{2CB12D27-8CB1-2E08-8726-667F110A16B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CB12D27-8CB1-2E08-8726-667F110A16B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CB12D27-8CB1-2E08-8726-667F110A16B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E9E00B-A20C-44A8-8190-7179D111B809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E9E00B-A20C-44A8-8190-7179D111B809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E9E00B-A20C-44A8-8190-7179D111B809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E9E00B-A20C-44A8-8190-7179D111B809}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
